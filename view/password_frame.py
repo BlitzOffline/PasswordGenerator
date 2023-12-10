@@ -3,6 +3,7 @@ from CTkToolTip import CTkToolTip
 from PIL import Image
 
 from password.manager import PasswordManager
+from paths import get_app_path
 from view.toast import Toast
 
 
@@ -24,8 +25,8 @@ class PasswordFrame(customtkinter.CTkFrame):
         self.password_box.grid(row=0, column=0, padx=10, pady=15)
 
         copy_image = customtkinter.CTkImage(
-            light_image=Image.open("assets/copy_light.png"),
-            dark_image=Image.open("assets/copy_dark.png"),
+            light_image=Image.open(f"{get_app_path()}/assets/copy_light.png"),
+            dark_image=Image.open(f"{get_app_path()}/assets/copy_dark.png"),
             size=(50, 50)
         )
 
@@ -37,8 +38,8 @@ class PasswordFrame(customtkinter.CTkFrame):
                                        font=("Consolas", 12, "bold"))
 
         refresh_image = customtkinter.CTkImage(
-            light_image=Image.open("assets/refresh_light.png"),
-            dark_image=Image.open("assets/refresh_dark.png"),
+            light_image=Image.open(f"{get_app_path()}/assets/refresh_light.png"),
+            dark_image=Image.open(f"{get_app_path()}/assets/refresh_dark.png"),
             size=(50, 50)
         )
 

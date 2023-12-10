@@ -1,9 +1,10 @@
 from app import App
+from paths import get_app_path
 
 
 def run():
     app = App()
-    app.iconbitmap(bitmap="assets/icon.ico")
+    app.iconbitmap(bitmap=f"{get_app_path()}/assets/icon.ico")
     app.mainloop()
 
 
