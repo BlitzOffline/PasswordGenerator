@@ -1,0 +1,8 @@
+To build the app, follow these steps:
+
+1. Clone the repo
+2. Cd into the repo directory
+3. Create a virtual environment (`python -m venv venv`)
+4. Install the dependencies (`pip install -r requirements.txt`)
+todo: fix pyinstaller build not properly including the asset images
+5. Build the app (`pyinstaller --noconfirm --onedir --windowed --add-data "venv/Lib/site-packages/customtkinter;customtkinter/" --add-data "assets;assets/"  main.py`)
