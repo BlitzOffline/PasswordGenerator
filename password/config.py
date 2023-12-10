@@ -1,14 +1,16 @@
 import tkinter
 
+from utils.constants import LOWERCASE_LETTERS, UPPERCASE_LETTERS, DIGITS, SYMBOLS
+
 
 class PasswordConfig:
     def __init__(self, length: tkinter.IntVar, lowercase_letters: tkinter.BooleanVar,
-                 uppercase_letters: tkinter.BooleanVar, numbers: tkinter.BooleanVar, symbols: tkinter.BooleanVar,
+                 uppercase_letters: tkinter.BooleanVar, digits: tkinter.BooleanVar, symbols: tkinter.BooleanVar,
                  extras: tkinter.StringVar, blacklist: tkinter.StringVar):
         self.length = length
         self.lowercase_letters = lowercase_letters
         self.uppercase_letters = uppercase_letters
-        self.numbers = numbers
+        self.digits = digits
         self.symbols = symbols
         self.extras = extras
         self.blacklist = blacklist
@@ -17,13 +19,13 @@ class PasswordConfig:
     def characters(self):
         characters = ""
         if self.lowercase_letters.get():
-            characters += "abcdefghijklmnopqrstuvwxyz"
+            characters += LOWERCASE_LETTERS
         if self.uppercase_letters.get():
-            characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        if self.numbers.get():
-            characters += "0123456789"
+            characters += UPPERCASE_LETTERS
+        if self.digits.get():
+            characters += DIGITS
         if self.symbols.get():
-            characters += "!@#$%^&*"
+            characters += SYMBOLS
         if self.extras.get():
             characters += self.extras.get()
         if self.blacklist.get():
@@ -33,8 +35,7 @@ class PasswordConfig:
         final = self.de_duplicate(characters)
 
         if not final:
-            self.lowercase_letters.set(True)
-            return "abcdefghijklmnopqrstuvwxyz"
+            return LOWERCASE_LETTERS
 
         return final
 

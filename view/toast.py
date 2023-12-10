@@ -1,5 +1,5 @@
 import customtkinter
-from customtkinter import CTkToplevel
+from customtkinter import CTkToplevel, CTkFrame
 
 
 class Toast(CTkToplevel):
@@ -9,17 +9,15 @@ class Toast(CTkToplevel):
             parent = args[0]
             parent.update()
 
-            # Get the width and height of the screen
-            screen_width = parent.winfo_screenwidth()
-            screen_height = parent.winfo_screenheight()
+            parent_x = parent.winfo_rootx()
+            parent_y = parent.winfo_rooty()
 
-            # Get the width and height of the top-level window
-            window_width = parent.winfo_reqwidth()
-            window_height = parent.winfo_reqheight()
+            parent_width = parent.winfo_width()
+            parent_height = parent.winfo_height()
 
-            # Calculate the position to center the window
-            x = (screen_width - window_width) // 2
-            y = (screen_height - window_height) // 2
+            # Place toast in the bottom right corner of the parent window
+            x = parent_x + parent_width - width
+            y = parent_y + parent_height - height
 
         super().__init__(*args, **kwargs)
         self.minsize(width=width, height=height)

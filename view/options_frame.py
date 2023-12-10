@@ -100,7 +100,7 @@ class OptionsFrame(customtkinter.CTkFrame):
 
     def get_numbers_checkbox(self):
         return (customtkinter.CTkCheckBox, [],
-                {"text": "", "variable": self.password_manager.password_generator.password_config.numbers})
+                {"text": "", "variable": self.password_manager.password_generator.password_config.digits})
 
     @staticmethod
     def get_symbols_label():

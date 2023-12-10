@@ -1,9 +1,8 @@
 import customtkinter
 from CTkToolTip import CTkToolTip
-
-from password.manager import PasswordManager
 from PIL import Image
 
+from password.manager import PasswordManager
 from view.toast import Toast
 
 
