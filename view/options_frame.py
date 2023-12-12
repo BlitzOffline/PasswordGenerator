@@ -6,59 +6,64 @@ from view.tricolumn_frame import TripleColumnFrame
 
 
 class OptionsFrame(customtkinter.CTkFrame):
-    def __init__(self, *args, width=960, height=580, password_manager: PasswordManager, **kwargs):
+    def __init__(self, master, password_manager: PasswordManager, width=950, height=574, **kwargs):
         self.password_manager = password_manager
 
-        super().__init__(*args, width=width, height=height, **kwargs)
+        super().__init__(master, width=width, height=height, **kwargs)
         self.grid_propagate(False)
 
-        self.options_title = customtkinter.CTkLabel(self, width=width - 20, height=25, text="OPTIONS",
-                                                    font=("Consolas", 20, "bold"))
-        self.options_title.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
+        self.options_title = customtkinter.CTkLabel(self, width=width, height=25, text="OPTIONS",
+                                                    fg_color="transparent", font=("Consolas", 20, "bold"))
+        self.options_title.grid(row=0, column=0, columnspan=3, pady=10)
 
-        # TODO: Determine why length slider is not centered vertically
-        self.length_frame = TripleColumnFrame(self, width=width - 20, height=50, fg_color="transparent",
+        elements = 7  # Number of elements in the OptionsFrame
+        element_height = int((574 - 25 - 20 - 20 * elements) / elements)
+        print(element_height)
+
+        # TODO: Determine why elements of a TripleColumnFrame are not centered
+        self.length_frame = TripleColumnFrame(self, width=width, height=element_height,
                                               column_1_element=self.get_length_label(),
                                               column_2_element=self.get_length_slider(),
-                                              column_3_element=self.get_length_spinbox())
-        self.length_frame.grid(row=1, column=0, padx=10, pady=10)
+                                              column_3_element=self.get_length_spinbox(),
+                                              fg_color="transparent")
+        self.length_frame.grid(row=1, column=0, pady=10)
         self.length_frame.grid_propagate(False)
 
-        self.lowercase_frame = TripleColumnFrame(self, width=width - 20, height=50, fg_color="transparent",
+        self.lowercase_frame = TripleColumnFrame(self, width=width, height=element_height,
                                                  column_1_element=self.get_lowercase_letters_label(),
-                                                 column_2_element=None,
-                                                 column_3_element=self.get_lowercase_letters_checkbox())
-        self.lowercase_frame.grid(row=2, column=0, padx=10, pady=10)
+                                                 column_3_element=self.get_lowercase_letters_checkbox(),
+                                                 fg_color="transparent")
+        self.lowercase_frame.grid(row=2, column=0, pady=10)
 
-        self.uppercase_frame = TripleColumnFrame(self, width=width - 20, height=50, fg_color="transparent",
+        self.uppercase_frame = TripleColumnFrame(self, width=width, height=element_height,
                                                  column_1_element=self.get_uppercase_letters_label(),
-                                                 column_2_element=None,
-                                                 column_3_element=self.get_uppercase_letters_checkbox())
-        self.uppercase_frame.grid(row=3, column=0, padx=10, pady=10)
+                                                 column_3_element=self.get_uppercase_letters_checkbox(),
+                                                 fg_color="transparent")
+        self.uppercase_frame.grid(row=3, column=0, pady=10)
 
-        self.numbers_frame = TripleColumnFrame(self, width=width - 20, height=50, fg_color="transparent",
+        self.numbers_frame = TripleColumnFrame(self, width=width, height=element_height,
                                                column_1_element=self.get_numbers_label(),
-                                               column_2_element=None,
-                                               column_3_element=self.get_numbers_checkbox())
-        self.numbers_frame.grid(row=4, column=0, padx=10, pady=10)
+                                               column_3_element=self.get_numbers_checkbox(),
+                                               fg_color="transparent")
+        self.numbers_frame.grid(row=4, column=0, pady=10)
 
-        self.symbols_frame = TripleColumnFrame(self, width=width - 20, height=50, fg_color="transparent",
+        self.symbols_frame = TripleColumnFrame(self, width=width, height=element_height,
                                                column_1_element=self.get_symbols_label(),
-                                               column_2_element=None,
-                                               column_3_element=self.get_symbols_checkbox())
-        self.symbols_frame.grid(row=5, column=0, padx=10, pady=10)
+                                               column_3_element=self.get_symbols_checkbox(),
+                                               fg_color="transparent")
+        self.symbols_frame.grid(row=5, column=0, pady=10)
 
-        self.extras_frame = TripleColumnFrame(self, width=width - 20, height=50, fg_color="transparent",
+        self.extras_frame = TripleColumnFrame(self, width=width, height=element_height,
                                               column_1_element=self.get_extras_label(),
                                               column_2_element=self.get_extras_entry(),
-                                              column_3_element=None)
-        self.extras_frame.grid(row=6, column=0, padx=10, pady=10)
+                                              fg_color="transparent")
+        self.extras_frame.grid(row=6, column=0, pady=10)
 
-        self.blacklist_frame = TripleColumnFrame(self, width=width - 20, height=50, fg_color="transparent",
+        self.blacklist_frame = TripleColumnFrame(self, width=width, height=element_height,
                                                  column_1_element=self.get_blacklist_label(),
                                                  column_2_element=self.get_blacklist_entry(),
-                                                 column_3_element=None)
-        self.blacklist_frame.grid(row=7, column=0, padx=10, pady=10)
+                                                 fg_color="transparent")
+        self.blacklist_frame.grid(row=7, column=0, pady=10)
 
     @staticmethod
     def get_length_label():

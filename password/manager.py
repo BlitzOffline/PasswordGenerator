@@ -1,3 +1,4 @@
+from password.checker import PasswordChecker
 from password.config import PasswordConfig
 from password.generator import PasswordGenerator
 
@@ -7,6 +8,7 @@ class PasswordManager:
         if callbacks is None:
             callbacks = {}
 
+        self.password_checker = PasswordChecker()
         self.password_generator = PasswordGenerator(password_config)
         self.callbacks = callbacks
         self.password = None
@@ -15,6 +17,9 @@ class PasswordManager:
     def regenerate_password(self):
         self.password = self.password_generator.generate_password()
         self.notify_callbacks(self.password)
+
+    def check_password(self, password: str, user_input: set[str] = None):
+        return self.password_checker.strength_check(password, user_input)
 
     def add_callback(self, name, callback, *args, **kwargs):
         self.callbacks[name] = lambda password: callback(password, *args, **kwargs)

@@ -3,3 +3,4 @@ ctktooltip==0.8
 pillow==10.1.0
 packaging==23.2
 pyinstaller==6.2.0
+zxcvbn==4.4.28
