@@ -23,8 +23,7 @@ class TripleColumnFrame(customtkinter.CTkFrame):
         self.column_1.grid_propagate(False)
 
         if column_1_element:
-            self.column_1_element = column_1_element[0](master=self.column_1, *column_1_element[1],
-                                                        **column_1_element[2])
+            self.column_1_element = column_1_element[0](master=self.column_1, **column_1_element[1])
             self.column_1_element.grid(row=0, column=0)
         else:
             self.column_1_element = None
@@ -35,8 +34,7 @@ class TripleColumnFrame(customtkinter.CTkFrame):
         self.column_2.grid_propagate(False)
 
         if column_2_element:
-            self.column_2_element = column_2_element[0](master=self.column_2, *column_2_element[1],
-                                                        **column_2_element[2])
+            self.column_2_element = column_2_element[0](master=self.column_2, **column_2_element[1])
             self.column_2_element.grid(row=0, column=0)
         else:
             self.column_2_element = None
@@ -46,8 +44,7 @@ class TripleColumnFrame(customtkinter.CTkFrame):
         self.column_3.grid_propagate(False)
 
         if column_3_element:
-            self.column_3_element = column_3_element[0](master=self.column_3, *column_3_element[1],
-                                                        **column_3_element[2])
+            self.column_3_element = column_3_element[0](master=self.column_3, **column_3_element[1])
             self.column_3_element.grid(row=0, column=0)
         else:
             self.column_3_element = None

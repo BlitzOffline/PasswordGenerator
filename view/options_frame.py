@@ -18,7 +18,6 @@ class OptionsFrame(customtkinter.CTkFrame):
 
         elements = 7  # Number of elements in the OptionsFrame
         element_height = int((574 - 25 - 20 - 20 * elements) / elements)
-        print(element_height)
 
         # TODO: Determine why elements of a TripleColumnFrame are not centered
         self.length_frame = TripleColumnFrame(self, width=width, height=element_height,
@@ -67,71 +66,71 @@ class OptionsFrame(customtkinter.CTkFrame):
 
     @staticmethod
     def get_length_label():
-        return (customtkinter.CTkLabel, [],
+        return (customtkinter.CTkLabel,
                 {"text": "Length", "anchor": "w", "justify": "left", "font": ("Consolas", 17, "bold")})
 
     def get_length_slider(self):
-        return (customtkinter.CTkSlider, [],
+        return (customtkinter.CTkSlider,
                 {"width": 340, "height": 15, "button_length": 5, "from_": 4, "to": 174, "number_of_steps": 170,
                  "variable": self.password_manager.password_generator.password_config.length})
 
     def get_length_spinbox(self):
-        return (IntSpinbox, [],
+        return (IntSpinbox,
                 {"width": 100, "height": 32, "step_size": 1, "from_": 4, "to": 174, "fg_color": "transparent",
                  "variable": self.password_manager.password_generator.password_config.length})
 
     @staticmethod
     def get_lowercase_letters_label():
-        return (customtkinter.CTkLabel, [],
+        return (customtkinter.CTkLabel,
                 {"text": "a-z", "anchor": "w", "justify": "left", "font": ("Consolas", 17, "bold")})
 
     def get_lowercase_letters_checkbox(self):
-        return (customtkinter.CTkCheckBox, [],
+        return (customtkinter.CTkCheckBox,
                 {"text": "", "variable": self.password_manager.password_generator.password_config.lowercase_letters})
 
     @staticmethod
     def get_uppercase_letters_label():
-        return (customtkinter.CTkLabel, [],
+        return (customtkinter.CTkLabel,
                 {"text": "A-Z", "anchor": "w", "justify": "left", "font": ("Consolas", 17, "bold")})
 
     def get_uppercase_letters_checkbox(self):
-        return (customtkinter.CTkCheckBox, [],
+        return (customtkinter.CTkCheckBox,
                 {"text": "", "variable": self.password_manager.password_generator.password_config.uppercase_letters})
 
     @staticmethod
     def get_numbers_label():
-        return (customtkinter.CTkLabel, [],
+        return (customtkinter.CTkLabel,
                 {"text": "0-9", "anchor": "w", "justify": "left", "font": ("Consolas", 17, "bold")})
 
     def get_numbers_checkbox(self):
-        return (customtkinter.CTkCheckBox, [],
+        return (customtkinter.CTkCheckBox,
                 {"text": "", "variable": self.password_manager.password_generator.password_config.digits})
 
     @staticmethod
     def get_symbols_label():
-        return (customtkinter.CTkLabel, [],
+        return (customtkinter.CTkLabel,
                 {"text": "!@#$%^&*", "anchor": "w", "justify": "left", "font": ("Consolas", 17, "bold")})
 
     def get_symbols_checkbox(self):
-        return (customtkinter.CTkCheckBox, [],
+        return (customtkinter.CTkCheckBox,
                 {"text": "", "variable": self.password_manager.password_generator.password_config.symbols})
 
     @staticmethod
     def get_extras_label():
-        return (customtkinter.CTkLabel, [],
+        return (customtkinter.CTkLabel,
                 {"text": "Extras", "anchor": "w", "justify": "left", "font": ("Consolas", 17, "bold")})
 
     def get_extras_entry(self):
-        return (customtkinter.CTkEntry, [],
+        return (customtkinter.CTkEntry,
                 {"width": 450, "height": 32,
                  "textvariable": self.password_manager.password_generator.password_config.extras})
 
     @staticmethod
     def get_blacklist_label():
-        return (customtkinter.CTkLabel, [],
+        return (customtkinter.CTkLabel,
                 {"text": "Blacklist", "anchor": "w", "justify": "left", "font": ("Consolas", 17, "bold")})
 
     def get_blacklist_entry(self):
-        return (customtkinter.CTkEntry, [],
+        return (customtkinter.CTkEntry,
                 {"width": 450, "height": 32,
                  "textvariable": self.password_manager.password_generator.password_config.blacklist})

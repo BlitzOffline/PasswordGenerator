@@ -52,7 +52,7 @@ class PasswordFrame(customtkinter.CTkFrame):
     def copy_password(self):
         self.clipboard_clear()
         self.clipboard_append(self.password_manager.password)
-        Toast(self.master, message="Copied to clipboard!")
+        Toast(master=self.master, message="Copied to clipboard!")
 
     def update_password_box(self, password: str):
         self.password_box.configure(text=password)

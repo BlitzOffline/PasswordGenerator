@@ -5,7 +5,7 @@ import customtkinter
 
 
 class IntSpinbox(customtkinter.CTkFrame):
-    def __init__(self, *args, width: int = 100, height: int = 32, step_size: int = 1, from_: int = 0, to: int = 100,
+    def __init__(self, master, width: int = 100, height: int = 32, step_size: int = 1, from_: int = 0, to: int = 100,
                  variable: IntVar = None, command: Callable[[int | None, int], None] = None, **kwargs):
         """
         :param args: Other arguments to pass to the CTkFrame constructor
@@ -24,7 +24,7 @@ class IntSpinbox(customtkinter.CTkFrame):
         if from_ > to:
             raise ValueError("'from_' must be less than or equal to 'to'")
 
-        super().__init__(*args, width=width, height=height, **kwargs)
+        super().__init__(master, width=width, height=height, **kwargs)
 
         self.step_size = step_size
         self.from_ = from_
